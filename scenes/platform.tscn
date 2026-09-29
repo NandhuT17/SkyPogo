@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cdb1im2sat21l"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i10s6"]
+albedo_color = Color(0.47029054, 0.5092211, 0.99481744, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lm55j"]
+material = SubResource("StandardMaterial3D_i10s6")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i10s6"]
+size = Vector3(3, 0.5, 3)
+
+[node name="Platform" type="StaticBody3D" unique_id=792387872]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=819587672]
+transform = Transform3D(3, 0, 0, 0, 0.5, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("BoxMesh_lm55j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1831392179]
+shape = SubResource("BoxShape3D_i10s6")

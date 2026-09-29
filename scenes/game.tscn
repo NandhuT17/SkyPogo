@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://cosd32o44lsss"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_lm55j"]
+[ext_resource type="Texture2D" uid="uid://b8y1w08ilygfk" path="res://assets/free_-_skybox_cliffside_0.hdr" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://cdb1im2sat21l" path="res://scenes/platform.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://3d2uhup3elx0" path="res://scenes/player.tscn" id="3_lnu2h"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8cj0n"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_uwrxv"]
+panorama = ExtResource("1_uwrxv")
 
 [sub_resource type="Sky" id="Sky_uwrxv"]
-sky_material = SubResource("ProceduralSkyMaterial_8cj0n")
+sky_material = SubResource("PanoramaSkyMaterial_uwrxv")
 
 [sub_resource type="Environment" id="Environment_yqjtg"]
 background_mode = 2
@@ -16,12 +17,14 @@ glow_enabled = true
 
 [node name="Game" type="Node" unique_id=1435754875]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=697609776]
-mesh = SubResource("BoxMesh_lm55j")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=773808336]
 environment = SubResource("Environment_yqjtg")
 
+[node name="Platform" parent="." unique_id=696559349 instance=ExtResource("2_yqjtg")]
+
+[node name="Player" parent="." unique_id=2020758449 instance=ExtResource("3_lnu2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=70590980]
-transform = Transform3D(0.0064199707, -0.14043106, 0.99006975, 0.00091058656, 0.9900905, 0.1404281, -0.9999791, 0, 0.0064842263, 1.5318725, 0.8746973, 0)
+transform = Transform3D(0.9993499, -0.0077931248, -0.0352015, 0.01763202, 0.9572769, 0.2886348, 0.031448215, -0.28906783, 0.95679194, -1.0788536, 3.546657, 4.8998346)
 current = true
