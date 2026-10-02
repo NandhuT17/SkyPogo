@@ -1,7 +1,8 @@
 class_name player
 extends CharacterBody3D
 
-var _gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity")
+const JUMP : float = 6.0
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,5 +10,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	velocity.y -= _gravity * delta
+	velocity.y -= gravity * delta
+	if is_on_floor() :
+		velocity.y = JUMP 
 	move_and_slide()
